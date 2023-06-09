@@ -6,7 +6,7 @@ import {
   IonTabBar,
   IonTabButton,
   IonTabs,
-  setupIonicReact
+  setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { ellipse, square, triangle } from "ionicons/icons";
@@ -33,13 +33,20 @@ import "@ionic/react/css/core.css";
 // import "@ionic/react/css/text-transformation.css";
 
 /* Theme variables */
-import Login from "./pages/Login";
+import Login from "./pages/auth/LoginPage";
 import "./theme/index.css";
 import "./theme/variables.css";
+import PilihRegistrasi from "./pages/auth/PilihRegistrasiPage";
+import RegistrasiPetaniPage from "./pages/auth/RegistrasiPetaniPage";
+import RegistrasiPedagangPage from "./pages/auth/RegistrasiPedagangPage";
 
 setupIonicReact();
 
-const PagesWithoutNavBar = ["/login"];
+const PagesWithoutNavBar = ["/login",
+'/pilih-registrasi',
+'/registrasi-petani',
+'/registrasi-pedagang',
+];
 
 const App: React.FC = () => {
   return (
@@ -65,12 +72,15 @@ const MainTabs = () => {
   return (
     <IonTabs>
       <IonRouterOutlet>
-      <Route
+        <Route
           exact
           path="/login"
           render={() => <Login />}
           // render={() => (auth.user ? <Redirect to="/" /> : <Login />)}
         />
+        <Route exact path="/pilih-registrasi" render={() => <PilihRegistrasi />} />
+        <Route exact path="/registrasi-petani" render={() => <RegistrasiPetaniPage />} />
+        <Route exact path="/registrasi-pedagang" render={() => <RegistrasiPedagangPage />} />
         <Route exact path="/tab1">
           <Tab1 />
         </Route>
