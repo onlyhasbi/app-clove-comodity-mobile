@@ -1,37 +1,32 @@
-import { IonContent, IonPage } from "@ionic/react";
+import {IonContent, IonPage} from "@ionic/react";
 import React from "react";
-import logoUrl from "../assets/images/AppClove-04.svg";
+
+import {Newspaper, PlusCircle, PlusIcon, PlusSquare} from "lucide-react";
+import {Button} from '../components/ui/button'
+import TextHeader from "../components/molecules/TextHeader";
+
+
 const Tab1: React.FC = () => {
-  return (
-    <IonPage>
-      <IonContent fullscreen className="bg-red-700">
-        <div className="container space-y-4">
-          <img className="w-60 mx-auto" src={logoUrl}></img>
-          <div className="bg-secondary rounded-xl mx-auto w-5/6 px-6 py-12 space-y-6">
-            <div className="flex flex-col text-left">
-              <label className="text-lg mb-1">Username</label>
-              <input className="border-[1px] border-accent rounded-md text-lg"></input>
-            </div>
+    return (<IonPage>
+        <IonContent fullscreen>
+            <TextHeader title={"Selamat Datang,"} description={"Ismail Marjuki"}/>
+            <div
+                className="flex flex-col justify-center text-center space-y-8 bg-white py-12 px-8 mx-4 rounded-xl">
+                <div className={"rounded-full self-center flex  border-gray-200 bg-accent text-white  p-4"}>
+                    <Newspaper className={"w-8 h-8"} strokeWidth={1}/>
+                </div>
+                <div>
+                    <h1 className={"font-[400]"}>Belum Ada Pekerjaan </h1>
+                    <h3 className={"text-[11px] text-secondary "}>Kamu belum mempunyai pekerjaan aktif sekarang</h3>
+                </div>
 
-            <div className="space-y-2">
-              <div className="flex flex-col text-left">
-                <label className="text-lg mb-1">Password</label>
-                <input className="border-[1px] border-accent rounded-md text-lg"></input>
-              </div>
-              <p className="text-xs text-primary">
-                Belum punya akun ?{" "}
-                <span className="py-3 text-accent font-semibold">Daftar disini</span>
-              </p>
+                <Button variant={"outline"} className={"max-w-md  font-semibold text-secondary"}>
+                    <PlusCircle className={"w-4 h-4 mr-2 "} strokeWidth={2}/>
+                    Daftar disini
+                </Button>
             </div>
-
-            <button className="bg-accent px-4 py-2 rounded-full text-secondary font-semibold block w-full">
-              Masuk
-            </button>
-          </div>
-        </div>
-      </IonContent>
-    </IonPage>
-  );
+        </IonContent>
+    </IonPage>);
 };
 
 export default Tab1;
