@@ -1,15 +1,14 @@
 import {IonContent, IonPage} from "@ionic/react";
 import React from "react";
 
-import {Newspaper, PlusCircle, PlusIcon, PlusSquare} from "lucide-react";
+import {Newspaper, PlusCircle} from "lucide-react";
 import {Button} from '../components/ui/button'
-import TextHeader from "../components/molecules/TextHeader";
-
+import ProfilHeader from "../components/molecules/ProfilHeader";
 
 const Tab1: React.FC = () => {
     return (<IonPage>
         <IonContent fullscreen>
-            <TextHeader title={"Selamat Datang,"} description={"Ismail Marjuki"}/>
+            <ProfilHeader title={"Selamat Datang,"} description={"Ismail Marjuki"}/>
             <div
                 className="flex flex-col justify-center text-center space-y-8 bg-white py-12 px-8 mx-4 rounded-xl">
                 <div className={"rounded-full self-center flex  border-gray-200 bg-accent text-white  p-4"}>
@@ -20,9 +19,9 @@ const Tab1: React.FC = () => {
                     <h3 className={"text-[11px] text-secondary "}>Kamu belum mempunyai pekerjaan aktif sekarang</h3>
                 </div>
 
-                <Button variant={"outline"} className={"max-w-md  font-semibold text-secondary"}>
+                <Button variant={"outline"} className={"max-w-md  font-[600] text-secondary"}>
                     <PlusCircle className={"w-4 h-4 mr-2 "} strokeWidth={2}/>
-                    Daftar disini
+                    Daftar Pekerjaan Disini
                 </Button>
             </div>
         </IonContent>
