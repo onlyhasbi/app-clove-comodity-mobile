@@ -6,8 +6,8 @@ const TextHeader = ({title, description}:{title:string, description:string}) => 
             <h1 className={"font-[500] text-lg"}>{title}</h1>
             <h3 className={"text-xs"}>{description}</h3>
         </div>
-        <div className={"w-12 h-12 bg-white rounded-full flex items-center justify-center font-semibold"}>
-            <p>J.D.</p>
+        <div className={"w-12 h-12 bg-white rounded-full flex items-center justify-center font-[600]"}>
+            <p>I.M.</p>
         </div>
     </div>)
 }

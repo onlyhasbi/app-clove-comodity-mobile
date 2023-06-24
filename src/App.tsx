@@ -39,6 +39,7 @@ import "./theme/variables.css";
 import PilihRegistrasi from "./pages/auth/PilihRegistrasiPage";
 import RegistrasiPetaniPage from "./pages/auth/RegistrasiPetaniPage";
 import RegistrasiPedagangPage from "./pages/auth/RegistrasiPedagangPage";
+import {BaggageClaim, Briefcase, CircleDollarSign, Coins, Currency, DollarSign, Home, Settings} from "lucide-react";
 
 setupIonicReact();
 
@@ -69,6 +70,12 @@ const MainTabs = () => {
     const hideNavBar = PagesWithoutNavBar.includes(pathname);
     e.style.display = hideNavBar ? "none" : "flex";
   }, [pathname]);
+
+  const styles = {
+    tabBar: ``,
+    tabButton: `font-light text-black`, //`font-black text-black focus:text-red-700`,
+    tabLabel: ` text-xs mt-1`,
+  };
   return (
     <IonTabs>
       <IonRouterOutlet>
@@ -94,18 +101,22 @@ const MainTabs = () => {
           <Redirect to="/tab1" />
         </Route>
       </IonRouterOutlet>
-      <IonTabBar slot="bottom">
-        <IonTabButton tab="tab1" href="/tab1">
-          <IonIcon aria-hidden="true" icon={triangle} />
-          <IonLabel>Tab 1</IonLabel>
+      < IonTabBar className={styles.tabBar} slot="bottom">
+        <IonTabButton className={styles.tabButton} tab="tab1" href="/tab1">
+          <Home strokeWidth={1}/>
+          <IonLabel className={styles.tabLabel}>Beranda</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="tab2" href="/tab2">
-          <IonIcon aria-hidden="true" icon={ellipse} />
-          <IonLabel>Tab 2</IonLabel>
+        <IonTabButton className={styles.tabButton}  tab="tab2" href="/tab2">
+          <Briefcase strokeWidth={1} />
+          <IonLabel className={styles.tabLabel}>Pekerjaan</IonLabel>
         </IonTabButton>
-        <IonTabButton tab="tab3" href="/tab3">
-          <IonIcon aria-hidden="true" icon={square} />
-          <IonLabel>Tab 3</IonLabel>
+        <IonTabButton className={styles.tabButton}  tab="tab3" href="/tab3">
+          <Coins strokeWidth={1} />
+          <IonLabel className={styles.tabLabel}>Penghasilan</IonLabel>
+        </IonTabButton>
+        <IonTabButton className={styles.tabButton}  tab="tab3" href="/tab3">
+          <Settings strokeWidth={1} />
+          <IonLabel className={styles.tabLabel}>Profil</IonLabel>
         </IonTabButton>
       </IonTabBar>
     </IonTabs>
