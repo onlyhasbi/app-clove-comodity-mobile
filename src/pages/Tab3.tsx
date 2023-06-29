@@ -6,7 +6,7 @@ const Tab3: React.FC = () => {
     return (<IonPage>
         <IonContent fullscreen>
             <TextHeader title={"Penghasilan"}/>
-            <div className={"mx-4 px-4 py-3 bg-white rounded-xl flex justify-between items-center border-t-2 border-accent"}>
+            <div className={"mx-4 px-4 py-3 bg-white rounded-xl flex justify-between items-center "}>
                 <div className={"space-y-1"}>
                     <h3 className={"font-semibold"}>Kebun Malino</h3>
                 </div>
@@ -16,7 +16,7 @@ const Tab3: React.FC = () => {
             </div>
             {[1, 1, 1, 1, 1].map((item,index) => <div
                 key={index}
-                className={"mx-4 my-2 px-4 py-3 bg-white rounded-xl flex justify-between items-center border-t-2 border-accent"}>
+                className={"mx-4 my-2 px-4 py-3 bg-white rounded-xl flex justify-between items-center "}>
                 <div className={"space-y-2"}>
                     <h3 className={"font-semibold"}>Petik Cengkeh</h3>
                     <div className={"flex gap-1 items-center"}>
