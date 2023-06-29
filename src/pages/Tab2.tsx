@@ -10,10 +10,10 @@ const Tab2: React.FC = () => {
             <TextHeader title={"Pekerjaan"}/>
             <div className={"px-4"}>
                 <input
-                    className={"w-full bg-white text-black" + " rounded-full py-4 px-4 text-xs"}
+                    className={"w-full bg-white text-black" + " rounded-xl py-4 px-4 text-xs"}
                     placeholder={"Cari"}/>
             </div>
-            <div className={"space-y-2.5 m-4"}>
+            <div className={"space-y-2.5 m-4 "}>
                 {items.map((item, index) => <Item key={index}  /> )}
             </div>
 
@@ -22,7 +22,7 @@ const Tab2: React.FC = () => {
 };
 
 const Item = () => {
-    return <div className={"min-h-[50px] bg-white p-4 rounded-xl flex gap-3 items-center justify-between"}>
+    return <div className={"min-h-[50px] bg-white p-4 rounded-xl flex gap-3 items-center justify-between border-t-2 border-accent"}>
         <div>
             <h2 className={"font-semibold text-sm"}>Cengkeh Malino</h2>
             <p className={"text-xs mt-1"}>Makassar, Barana</p>

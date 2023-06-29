@@ -19,8 +19,8 @@
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
  
-    --primary: 41 62% 91%;
-    --primary-foreground: 41 62% 91%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 0 0% 95%;
  
     --secondary: 97 49% 50%;
     --secondary-foreground: 97 49% 50%;
@@ -98,7 +98,10 @@
   font-family: "Inter-Regular";
 }
 
-
+ion-app{
+  max-width: 480px;
+  margin:0px auto;
+}
 
 
 ion-content {

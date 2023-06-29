@@ -28,6 +28,7 @@ import PilihRegistrasi from "./pages/auth/PilihRegistrasiPage";
 import RegistrasiPetaniPage from "./pages/auth/RegistrasiPetaniPage";
 import RegistrasiPedagangPage from "./pages/auth/RegistrasiPedagangPage";
 import {Briefcase, Coins, Home, Settings} from "lucide-react";
+import Tab4 from "../src/pages/Tab4";
 
 setupIonicReact();
 
@@ -85,6 +86,9 @@ const MainTabs = () => {
                 <Route path="/tab3">
                     <Tab3/>
                 </Route>
+                <Route path="/tab4">
+                    <Tab4/>
+                </Route>
                 <Route exact path="/">
                     <Redirect to="/tab1"/>
                 </Route>
@@ -102,7 +106,7 @@ const MainTabs = () => {
                     <Coins strokeWidth={1}/>
                     <IonLabel className={styles.tabLabel}>Penghasilan</IonLabel>
                 </IonTabButton>
-                <IonTabButton className={styles.tabButton} tab="tab3" href="/tab3">
+                <IonTabButton className={styles.tabButton} tab="tab4" href="/tab4">
                     <Settings strokeWidth={1}/>
                     <IonLabel className={styles.tabLabel}>Profil</IonLabel>
                 </IonTabButton>
