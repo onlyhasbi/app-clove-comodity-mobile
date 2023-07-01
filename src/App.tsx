@@ -9,17 +9,7 @@ import Penghasilan from "./pages/Penghasilan";
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
 
-/* Basic CSS for apps built with Ionic */
-// import "@ionic/react/css/normalize.css";
-// import "@ionic/react/css/structure.css";
-// import "@ionic/react/css/typography.css";
-/* Optional CSS utils that can be commented out */
-// import "@ionic/react/css/display.css";
-// import "@ionic/react/css/flex-utils.css";
-// import "@ionic/react/css/float-elements.css";
-// import "@ionic/react/css/padding.css";
-// import "@ionic/react/css/text-alignment.css";
-// import "@ionic/react/css/text-transformation.css";
+
 /* Theme variables */
 import Login from "./pages/auth/LoginPage";
 import "./theme/index.css";
@@ -30,6 +20,7 @@ import RegistrasiPedagangPage from "./pages/auth/RegistrasiPedagangPage";
 import {Briefcase, Coins, Home, Settings} from "lucide-react";
 import Pengaturan from "./pages/Pengaturan";
 import DetailPekerjaan from "../src/pages/DetailPekerjaan";
+import Profile from "./pages/Profile";
 
 setupIonicReact();
 
@@ -37,6 +28,8 @@ const PagesWithoutNavBar = ["/login",
     '/pilih-registrasi',
     '/registrasi-petani',
     '/registrasi-pedagang',
+    '/pekerjaan/:id',
+    '/profil',
 ];
 
 const App: React.FC = () => {
@@ -79,6 +72,7 @@ const MainTabs = () => {
                 <Route exact path="/registrasi-petani" render={() => <RegistrasiPetaniPage/>}/>
                 <Route exact path="/registrasi-pedagang" render={() => <RegistrasiPedagangPage/>}/>
                 <Route exact path="/pekerjaan/:id" render={() => <DetailPekerjaan/>}/>
+                <Route exact path="/profile" render={() => <Profile/>}/>
                 <Route exact path="/beranda">
                     <Beranda/>
                 </Route>

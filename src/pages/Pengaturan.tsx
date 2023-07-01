@@ -3,7 +3,6 @@ import React, {ReactElement} from "react";
 import ProfilHeader from "../components/molecules/ProfilHeader";
 import {ChevronRight, Contact, LogOut, Settings, User} from "lucide-react";
 import {useHistory} from "react-router-dom";
-import {Button} from "react-query/types/devtools/styledComponents";
 
 
 const Pengaturan: React.FC = () => {
@@ -13,18 +12,18 @@ const Pengaturan: React.FC = () => {
     return (<IonPage>
         <IonContent fullscreen>
             <ProfilHeader title={"Ismail Marjuki"} description={"085211818885"} additional={<div>
-                <button className={"py-2 px-3 text-xs border-[1px] border-green-600 rounded-md "}>Sedang Bekerja</button>
+                <button className={"py-2 px-3 text-xs border-[1px] border-green-600 rounded-md "}>Sedang Bekerja
+                </button>
             </div>}/>
             <div className="space-y-4 bg-white py-8 px-8 mx-4 rounded-xl ">
 
                 <ItemMenu title={"Profil"}
                           icon={<User className={"w-5 h-5"} strokeWidth={1}/>}
-                          handleClick={() => history.replace("/profil")}
+                          handleClick={() => history.replace("/profile")}
                 />
 
                 <ItemMenu title={"Admin"}
                           icon={<Contact className={"w-5 h-5"} strokeWidth={1}/>}
-                          handleClick={() => history.replace("/admin")}
                 />
 
                 <ItemMenu title={"Versi 1.0.0"}
