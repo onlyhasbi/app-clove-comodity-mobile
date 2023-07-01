@@ -5,6 +5,7 @@ import {PlusCircle} from "lucide-react";
 import {Button} from '../components/ui/button'
 import ProfilHeader from "../components/molecules/ProfilHeader";
 import nojobSrc from '../../src/assets/images/nojob.svg'
+import {Link} from "react-router-dom";
 
 const Tab1: React.FC = () => {
     return (<IonPage>
@@ -19,11 +20,12 @@ const Tab1: React.FC = () => {
                     <h1 className={"font-[400]"}>Belum Ada Pekerjaan </h1>
                     <h3 className={"text-[11px] text-secondary "}>Kamu belum mempunyai pekerjaan aktif sekarang</h3>
                 </div>
-
+    <Link to={"/tab2"}>
                 <Button variant={"outline"} className={"max-w-md  font-[500] text-secondary mx-auto"}>
                     <PlusCircle className={"w-4 h-4 mr-2 "} strokeWidth={2}/>
                     Daftar Pekerjaan Disini
                 </Button>
+    </Link>
             </div>
         </IonContent>
     </IonPage>);

@@ -8,7 +8,7 @@ const Tab3: React.FC = () => {
             <TextHeader title={"Penghasilan"}/>
             <div className={"mx-4 px-4 py-3 bg-white rounded-xl flex justify-between items-center "}>
                 <div className={"space-y-1"}>
-                    <h3 className={"font-semibold"}>Kebun Malino</h3>
+                    <h3 className={"font-semibold text-sm"}>Kebun Malino</h3>
                 </div>
                 <div className={"space-y-1"}>
                     <p className={"text-xs"}>Rp.150.000</p>
@@ -18,7 +18,7 @@ const Tab3: React.FC = () => {
                 key={index}
                 className={"mx-4 my-2 px-4 py-3 bg-white rounded-xl flex justify-between items-center "}>
                 <div className={"space-y-2"}>
-                    <h3 className={"font-semibold"}>Petik Cengkeh</h3>
+                    <h3 className={"font-semibold text-xs"}>Petik Cengkeh</h3>
                     <div className={"flex gap-1 items-center"}>
                         <p className={"text-xs bg-red-200 text-black rounded-full px-2 py-1"}>Belum Dibayar</p>
                         <p className={"text-xs bg-green-100 rounded-full px-2 py-1"}>10 Kg</p>
@@ -27,7 +27,7 @@ const Tab3: React.FC = () => {
 
 
                 </div>
-                <div className={"flex flex-col justify-between"}>
+                <div className={"flex flex-col self-start"}>
                     <p className={"text-xs "}>21/03/2023</p>
                 </div>
 

@@ -24,7 +24,7 @@ const Tab2: React.FC = () => {
 const Item = () => {
     return <div className={"min-h-[50px] bg-white p-4 rounded-xl flex gap-3 items-center justify-between "}>
         <div>
-            <h2 className={"font-semibold text-sm"}>Cengkeh Malino</h2>
+            <h2 className={"font-semibold text-xs"}>Cengkeh Malino</h2>
             <p className={"text-xs mt-1"}>Makassar, Barana</p>
         </div>
         <div className={"text-xs"}>
