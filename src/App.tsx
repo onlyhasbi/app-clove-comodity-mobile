@@ -56,7 +56,7 @@ const MainTabs = () => {
 
     const styles = {
         tabBar: `border-t-[1px] border-slate-50`,
-        tabButton: `font-light text-black`, //`font-black text-black focus:text-red-700`,
+        tabButton: `font-light`, //`font-black text-black focus:text-red-700`,
         tabLabel: ` text-xs mt-1`,
     };
     return (

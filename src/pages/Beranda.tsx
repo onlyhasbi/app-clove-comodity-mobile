@@ -27,7 +27,7 @@ const Beranda: React.FC = () => {
                     <h3 className={"text-[11px] text-secondary "}>Kamu belum mempunyai pekerjaan aktif sekarang</h3>
                 </div>
                 <Link to={"/pekerjaan"}>
-                    <Button variant={"outline"} className={"max-w-md  font-[500] text-secondary mx-auto"}>
+                    <Button variant={"outline"} className={"max-w-md  font-[500] text-secondary mx-auto rounded-full"}>
                         <PlusCircle className={"w-4 h-4 mr-2 "} strokeWidth={1}/>
                         Daftar Pekerjaan Disini
                     </Button>

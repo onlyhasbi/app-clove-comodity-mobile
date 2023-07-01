@@ -12,7 +12,7 @@ const Pengaturan: React.FC = () => {
     return (<IonPage>
         <IonContent fullscreen>
             <ProfilHeader title={"Ismail Marjuki"} description={"085211818885"} additional={<div>
-                <button className={"py-2 px-3 text-xs border-[1px] border-green-600 rounded-md "}>Sedang Bekerja
+                <button className={"py-2 px-3 text-xs bg-secondary text-white rounded-xl "}>Sedang Bekerja
                 </button>
             </div>}/>
             <div className="space-y-4 bg-white py-8 px-8 mx-4 rounded-xl ">
