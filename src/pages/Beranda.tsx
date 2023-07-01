@@ -1,13 +1,21 @@
 import {IonContent, IonPage} from "@ionic/react";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import {PlusCircle} from "lucide-react";
 import {Button} from '../components/ui/button'
 import ProfilHeader from "../components/molecules/ProfilHeader";
 import nojobSrc from '../../src/assets/images/nojob.svg'
 import {Link} from "react-router-dom";
+import SkeletonList from "../../src/components/molecules/SkeletonList";
 
 const Beranda: React.FC = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    useEffect(() => {
+        setIsLoading(true)
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1500)
+    }, [])
     return (<IonPage>
         <IonContent fullscreen>
             <ProfilHeader title={"Selamat Datang,"}
@@ -17,11 +25,9 @@ const Beranda: React.FC = () => {
                               <p>I.M.</p>
                           </div>}
             />
-            <div
+            {isLoading ? <SkeletonList loop={8} classname={"mx-4"}/> : <div
                 className="flex flex-col justify-center text-center space-y-8 bg-white py-12 px-8 mx-4 rounded-xl ">
-                {/*<div className={"rounded-full self-center flex  border-gray-200 bg-accent text-white  p-4"}>*/}
                 <img src={nojobSrc} className={"w-full h-48"}/>
-                {/*</div>*/}
                 <div>
                     <h1 className={"font-[400]"}>Belum Ada Pekerjaan </h1>
                     <h3 className={"text-[11px] text-secondary "}>Kamu belum mempunyai pekerjaan aktif sekarang</h3>
@@ -32,7 +38,7 @@ const Beranda: React.FC = () => {
                         Daftar Pekerjaan Disini
                     </Button>
                 </Link>
-            </div>
+            </div>}
         </IonContent>
     </IonPage>);
 };

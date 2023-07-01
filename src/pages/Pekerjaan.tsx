@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {IonContent, IonPage} from '@ionic/react';
 import TextHeader from "../components/molecules//TextHeader";
 import {Link} from "react-router-dom";
 import {Map} from "lucide-react";
+import SkeletonList from "../../src/components/molecules/SkeletonList";
 
 const Pekerjaan: React.FC = () => {
+    const [isLoading, setIsLoading] = useState<boolean>(false)
+    useEffect(() => {
+        setIsLoading(true)
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1500)
+    }, [])
     const items = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    return (<IonPage>
 
+    return (<IonPage>
         <IonContent fullscreen>
             <TextHeader title={"Pekerjaan"}/>
             <div className={"px-4"}>
@@ -16,7 +24,11 @@ const Pekerjaan: React.FC = () => {
                     placeholder={"Cari"}/>
             </div>
             <div className={" m-4 "}>
-                {items.map((item, index) => <Item key={index}/>)}
+                {isLoading ? <SkeletonList loop={8}/> : <>
+                    {items.map((item, index) => <Item key={index}/>)}
+                </>}
+
+
             </div>
 
         </IonContent>
