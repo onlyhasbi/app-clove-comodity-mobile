@@ -32,7 +32,6 @@ const Pengaturan: React.FC = () => {
 
                 <ItemMenu title={"Keluar"}
                           icon={<LogOut className={"w-5 h-5"} strokeWidth={1}/>}
-                          handleClick={() => console.log('hello world')}
                 />
 
 
