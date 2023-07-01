@@ -2,7 +2,7 @@ import {IonContent, IonPage} from "@ionic/react";
 import React from "react";
 import TextHeader from "../components/molecules/TextHeader";
 
-const Tab3: React.FC = () => {
+const Penghasilan: React.FC = () => {
     return (<IonPage>
         <IonContent fullscreen>
             <TextHeader title={"Penghasilan"}/>
@@ -36,4 +36,4 @@ const Tab3: React.FC = () => {
     </IonPage>);
 };
 
-export default Tab3;
+export default Penghasilan;

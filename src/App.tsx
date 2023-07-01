@@ -2,9 +2,9 @@ import {IonApp, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, set
 import {IonReactRouter} from "@ionic/react-router";
 import React, {useLayoutEffect} from "react";
 import {Redirect, Route, useLocation} from "react-router-dom";
-import Tab1 from "./pages/Tab1";
-import Tab2 from "./pages/Tab2";
-import Tab3 from "./pages/Tab3";
+import Beranda from "./pages/Beranda";
+import Pekerjaan from "./pages/Pekerjaan";
+import Penghasilan from "./pages/Penghasilan";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -28,7 +28,8 @@ import PilihRegistrasi from "./pages/auth/PilihRegistrasiPage";
 import RegistrasiPetaniPage from "./pages/auth/RegistrasiPetaniPage";
 import RegistrasiPedagangPage from "./pages/auth/RegistrasiPedagangPage";
 import {Briefcase, Coins, Home, Settings} from "lucide-react";
-import Tab4 from "../src/pages/Tab4";
+import Pengaturan from "./pages/Pengaturan";
+import DetailPekerjaan from "../src/pages/DetailPekerjaan";
 
 setupIonicReact();
 
@@ -77,38 +78,39 @@ const MainTabs = () => {
                 <Route exact path="/pilih-registrasi" render={() => <PilihRegistrasi/>}/>
                 <Route exact path="/registrasi-petani" render={() => <RegistrasiPetaniPage/>}/>
                 <Route exact path="/registrasi-pedagang" render={() => <RegistrasiPedagangPage/>}/>
-                <Route exact path="/tab1">
-                    <Tab1/>
+                <Route exact path="/pekerjaan/:id" render={() => <DetailPekerjaan/>}/>
+                <Route exact path="/beranda">
+                    <Beranda/>
                 </Route>
-                <Route exact path="/tab2">
-                    <Tab2/>
+                <Route exact path="/pekerjaan">
+                    <Pekerjaan/>
                 </Route>
-                <Route path="/tab3">
-                    <Tab3/>
+                <Route path="/penghasilan">
+                    <Penghasilan/>
                 </Route>
-                <Route path="/tab4">
-                    <Tab4/>
+                <Route path="/pengaturan">
+                    <Pengaturan/>
                 </Route>
                 <Route exact path="/">
-                    <Redirect to="/tab1"/>
+                    <Redirect to="/beranda"/>
                 </Route>
             </IonRouterOutlet>
             < IonTabBar className={styles.tabBar} slot="bottom">
-                <IonTabButton className={styles.tabButton} tab="tab1" href="/tab1">
+                <IonTabButton className={styles.tabButton} tab="beranda" href="/beranda">
                     <Home strokeWidth={1}/>
                     <IonLabel className={styles.tabLabel}>Beranda</IonLabel>
                 </IonTabButton>
-                <IonTabButton className={styles.tabButton} tab="tab2" href="/tab2">
+                <IonTabButton className={styles.tabButton} tab="pekerjaan" href="/pekerjaan">
                     <Briefcase strokeWidth={1}/>
                     <IonLabel className={styles.tabLabel}>Pekerjaan</IonLabel>
                 </IonTabButton>
-                <IonTabButton className={styles.tabButton} tab="tab3" href="/tab3">
+                <IonTabButton className={styles.tabButton} tab="penghasilan" href="/penghasilan">
                     <Coins strokeWidth={1}/>
                     <IonLabel className={styles.tabLabel}>Penghasilan</IonLabel>
                 </IonTabButton>
-                <IonTabButton className={styles.tabButton} tab="tab4" href="/tab4">
+                <IonTabButton className={styles.tabButton} tab="pengaturan" href="/pengaturan">
                     <Settings strokeWidth={1}/>
-                    <IonLabel className={styles.tabLabel}>Profil</IonLabel>
+                    <IonLabel className={styles.tabLabel}>Pengaturan</IonLabel>
                 </IonTabButton>
             </IonTabBar>
         </IonTabs>
