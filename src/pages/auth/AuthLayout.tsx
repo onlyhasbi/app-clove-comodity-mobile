@@ -10,7 +10,7 @@ const AuthLayout = ({children}: props) => {
     return (
         <IonPage>
             <IonContent fullscreen>
-                <div className="container space-y-12">
+                <div className="container space-y-12 my-24">
                     <img className="w-56 mx-auto" src={logoUrl}></img>
                     {children}
                 </div>

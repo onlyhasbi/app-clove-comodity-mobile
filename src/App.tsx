@@ -14,9 +14,8 @@ import "@ionic/react/css/core.css";
 import Login from "./pages/auth/LoginPage";
 import "./theme/index.css";
 import "./theme/variables.css";
-import PilihRegistrasi from "./pages/auth/PilihRegistrasiPage";
-import RegistrasiPetaniPage from "./pages/auth/RegistrasiPetaniPage";
-import RegistrasiPedagangPage from "./pages/auth/RegistrasiPedagangPage";
+import RegistrasiPage from "./pages/auth/RegistrasiPage";
+
 import {Briefcase, Coins, Home, Settings} from "lucide-react";
 import Pengaturan from "./pages/Pengaturan";
 import DetailPekerjaan from "../src/pages/DetailPekerjaan";
@@ -26,8 +25,7 @@ setupIonicReact();
 
 const PagesWithoutNavBar = ["/login",
     '/pilih-registrasi',
-    '/registrasi-petani',
-    '/registrasi-pedagang',
+    '/registrasi',
     '/pekerjaan/:id',
     '/profil',
 ];
@@ -68,9 +66,7 @@ const MainTabs = () => {
                     render={() => <Login/>}
                     // render={() => (auth.user ? <Redirect to="/" /> : <Login />)}
                 />
-                <Route exact path="/pilih-registrasi" render={() => <PilihRegistrasi/>}/>
-                <Route exact path="/registrasi-petani" render={() => <RegistrasiPetaniPage/>}/>
-                <Route exact path="/registrasi-pedagang" render={() => <RegistrasiPedagangPage/>}/>
+                <Route exact path="/registrasi" render={() => <RegistrasiPage/>}/>
                 <Route exact path="/pekerjaan/:id" render={() => <DetailPekerjaan/>}/>
                 <Route exact path="/profile" render={() => <Profile/>}/>
                 <Route exact path="/beranda">
