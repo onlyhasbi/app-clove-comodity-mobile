@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {IonContent, IonPage} from '@ionic/react';
 import TextHeader from "../components/molecules//TextHeader";
 import {Link} from "react-router-dom";
-import {Map} from "lucide-react";
+import {Filter, Map} from "lucide-react";
 import SkeletonList from "../../src/components/molecules/SkeletonList";
 
 const Pekerjaan: React.FC = () => {
@@ -27,8 +27,6 @@ const Pekerjaan: React.FC = () => {
                 {isLoading ? <SkeletonList loop={8}/> : <>
                     {items.map((item, index) => <Item key={index}/>)}
                 </>}
-
-
             </div>
 
         </IonContent>
