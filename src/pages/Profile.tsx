@@ -3,7 +3,7 @@ import {IonContent, IonPage} from "@ionic/react";
 import {ArrowLeft} from "lucide-react";
 import TextHeader from "../../src/components/molecules/TextHeader";
 import {useHistory} from "react-router-dom";
-import {Input} from "../components/ui/input";
+import {Input} from "../components/ui/Input";
 export default function Profile():JSX.Element{
     const history = useHistory();
     return <IonPage>

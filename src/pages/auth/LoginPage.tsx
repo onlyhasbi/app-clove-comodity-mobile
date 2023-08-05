@@ -1,55 +1,100 @@
 import React from "react";
-import {Button} from "../../components/ui/button";
-import {Input} from "../../components/ui/input";
+import { Button } from "../../components/ui/Button";
 import AuthLayout from "./AuthLayout";
-import {Link} from "react-router-dom";
-import {Eye, EyeOff} from "lucide-react";
+import { Link } from "react-router-dom";
+import { usePost } from "../../hooks/useApi";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form } from "../../components/ui/Form";
+import FormInput from "../../components/molecules/FormInput";
+import LoadingButton from "../../components/molecules/LoadingButton";
 
+const schema = z.object({
+  nomor_telpon: z
+    .string()
+    .min(10, "Nomor Telepon Minimal 10 Karakter")
+    .nonempty(),
+  sandi: z.string().nonempty(),
+});
+
+type IFormData = z.infer<typeof schema>;
 const LoginPage: React.FC = () => {
-    const [isShowPassword, setIsShowPassword] = React.useState<boolean>(false)
-    return (<AuthLayout>
-        <div>
-            <div className="flex flex-col text-left">
-                <label className="text-lg text-black mb-1 font-semibold">
-                    Username
-                </label>
-                <Input type="text" className="bg-white"/>
-            </div>
+  const form = useForm<IFormData>({
+    resolver: zodResolver(schema),
+  });
 
-            <div className="flex flex-col text-left mt-8">
-                <label className="text-lg text-black mb-1 font-semibold">
-                    Password
-                </label>
-                <div className={"relative"}>
-                    <Input type={isShowPassword ? "text" : "password"} className="bg-white"/>
-                    {isShowPassword ? <Eye className={"absolute right-2 top-2 text-secondary"}
-                                           onClick={() => setIsShowPassword(prev => !prev)}/> :
-                        <EyeOff className={"absolute right-2 top-2 text-secondary"}
-                                onClick={() => setIsShowPassword(prev => !prev)}/>}
-                </div>
-            </div>
+  const { mutate, isLoading } = usePost<IFormData>({
+    endpoint: "authentication-buruh",
+    mutationOptions: {
+      onSuccess: (data) => {
+        console.log(data);
+      },
+      onError: (error) => {
+        if (error?.response?.status?.toString() === "400") {
+          form.setError("nomor_telpon", {
+            message: error.response.data.message,
+          });
+        }
+      },
+    },
+  });
 
-            <div className="mt-2">
-                <p className="text-xs text-secondary text-center">
-                    Belum punya akun ?{" "}
-                    <Link to="/registrasi">
-              <span className="py-3 text-accent font-semibold">
-                Daftar disini
-              </span>
-                    </Link>
-                </p>
-            </div>
-            <Link to={"/beranda"}>
-                <Button
-                    variant={"primary"}
-                    size={"lg"}
-                    className="block w-full mt-10 font-semibold text-lg rounded-full"
-                >
-                    Masuk
-                </Button>
-            </Link>
-        </div>
-    </AuthLayout>);
+  const handleLogin = (data: IFormData) => {
+    mutate({
+      ...data,
+    });
+  };
+
+  return (
+    <AuthLayout>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleLogin)} className={"space-y-6"}>
+          <FormInput<IFormData>
+            fieldName={"nomor_telpon"}
+            label={"Nomor Telepon"}
+            form={form}
+            required={false}
+            type={"text"}
+          />
+
+          <FormInput<IFormData>
+            fieldName={"sandi"}
+            label={"Password"}
+            form={form}
+            required={false}
+            type={"password"}
+          />
+
+          <LinkRegistrasi />
+
+          {isLoading ? (
+            <LoadingButton />
+          ) : (
+            <Button
+              variant={"primary"}
+              size={"lg"}
+              type={"submit"}
+              className="block w-full mt-10 font-semibold text-lg rounded-full"
+            >
+              Masuk
+            </Button>
+          )}
+        </form>
+      </Form>
+    </AuthLayout>
+  );
 };
+
+const LinkRegistrasi = () => (
+  <div className="mt-2">
+    <p className="text-xs text-secondary text-center">
+      Belum punya akun ?{" "}
+      <Link to="/registrasi">
+        <span className="py-3 text-accent font-semibold">Daftar disini</span>
+      </Link>
+    </p>
+  </div>
+);
 
 export default LoginPage;
